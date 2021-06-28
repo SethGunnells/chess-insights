@@ -9,6 +9,6 @@
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "lib": ["webworker"]
+    "lib": ["dom", "webworker"]
   }
 }

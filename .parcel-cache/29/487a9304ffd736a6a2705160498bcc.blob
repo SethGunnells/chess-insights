@@ -1,0 +1,35 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getData", ()=>getData
+);
+parcelHelpers.export(exports, "getLatest", ()=>getLatest
+);
+const STORAGE_KEY = 'chessInsights:games';
+const getData = ()=>{
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw);
+};
+const getLatest = (callback, since)=>{
+    let newData = [];
+    const worker = new Worker(require("./data.worker.ts"));
+    return new Promise((resolve)=>{
+        worker.onmessage = ({ data  })=>{
+            if (callback) callback(data);
+            if (data === null) {
+                worker.terminate();
+                const games = [
+                    ...newData,
+                    ...getData()
+                ];
+                storeGames(games);
+                return resolve(games);
+            }
+            if (data) newData.unshift(data);
+        };
+        worker.postMessage(since);
+    });
+};
+const storeGames = (games)=>{
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(games));
+};

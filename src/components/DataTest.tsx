@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 
+import { getLatest } from '../services/data'
+
 const DataTest = () => {
   const [games, setGames] = useState<any[]>([])
 
   useEffect(() => {
-    const worker = new Worker('../services/data.worker.ts')
-    worker.onmessage = (game) => {
-      setGames(current => [...current, game.data])
-    }
+    getLatest().then(setGames)
   }, [])
 
   return <ul>
