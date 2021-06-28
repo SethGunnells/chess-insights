@@ -1,0 +1,19 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _fetchNdjson = require("fetch-ndjson");
+var _fetchNdjsonDefault = parcelHelpers.interopDefault(_fetchNdjson);
+async function getData() {
+    const response = await fetch('https://lichess.org/api/games/user/GhostSignal?opening=true&moves=false', {
+        headers: {
+            Accept: 'application/x-ndjson'
+        }
+    });
+    const reader = response.body?.getReader();
+    if (!reader) return;
+    const generator = _fetchNdjsonDefault.default(reader);
+    while(true){
+        const { done , value  } = await generator.next();
+        postMessage(value, 'http://localhost:1234');
+        if (done) return;
+    }
+}
+getData();

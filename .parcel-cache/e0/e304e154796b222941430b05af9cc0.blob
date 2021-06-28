@@ -1,0 +1,37 @@
+var helpers = require("../../.yarn/cache/@parcel-transformer-react-refresh-wrap-npm-2.0.0-beta.3.1-dee0d05f58-091b74ece6.zip/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _s = $RefreshSig$();
+const DataTest = ()=>{
+    _s();
+    const [games, setGames] = _react.useState([]);
+    _react.useEffect(()=>{
+        const worker = new Worker(require("../services/data.worker.ts"));
+        worker.onmessage = (game)=>{
+            console.log(game);
+            setGames((current)=>[
+                    ...current,
+                    game
+                ]
+            );
+        };
+    }, []);
+    return 'done';
+};
+_s(DataTest, "Qv+Imzbbm47aMqW5lWWxooDvX6M=");
+_c = DataTest;
+exports.default = DataTest;
+var _c;
+$RefreshReg$(_c, "DataTest");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

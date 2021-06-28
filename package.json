@@ -4,12 +4,15 @@
     "start": "parcel serve ./src/index.html"
   },
   "dependencies": {
+    "fetch-ndjson": "^1.1.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@types/node": "^15.12.5",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
-    "parcel": "next"
+    "parcel": "next",
+    "typescript": "^4.3.4"
   }
 }
