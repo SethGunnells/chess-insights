@@ -1967,6 +1967,7 @@ __metadata:
     "@types/react": ^17.0.11
     "@types/react-dom": ^17.0.8
     fetch-ndjson: ^1.1.6
+    modern-normalize: ^1.1.0
     parcel: next
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -4957,6 +4958,13 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: 1aa3a6a2d7514f094a91329ec09994f5d32d2955a4985ecbb3d86f2aaeafc4aa11521f98d606144c1d49cd9835004d9a73342709b8c692c92e59eacf37412468
+  languageName: node
+  linkType: hard
+
+"modern-normalize@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "modern-normalize@npm:1.1.0"
+  checksum: d75412f804e93ccc4b992b5c66f3a37093b4e105e1ed90ac2fa718601dad2c1250d06d7773fe0fee054927bd53b4ab624e04ecafddfa80ea337937f6282791b2
   languageName: node
   linkType: hard
 

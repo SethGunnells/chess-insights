@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
+import 'modern-normalize/modern-normalize.css'
 
-import Games from './components/Games'
+import App from './components/App'
 
-render(<Games />, document.getElementById('root'))
+render(<App />, document.getElementById('root'))
