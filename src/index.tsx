@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import DataTest from './components/DataTest'
+import Games from './components/Games'
 
-render(<DataTest />, document.getElementById('root'))
+render(<Games />, document.getElementById('root'))
